@@ -75,9 +75,9 @@ class PolicyNetwork:
         self.weight_grads = dw
         self.reset_hidden_layers(len(hs))
 
-    def update_parameters(self, eta):
+    def update_parameters(self, eta, decay):
         for i in range(len(self.weight_grads)):
-            self.weights[i] += eta * self.weight_grads[i]
+            self.weights[i] += decay * eta * self.weight_grads[i]
 
     def save(self, path=None):
         """
