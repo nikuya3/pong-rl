@@ -31,7 +31,7 @@ def train(done, reward):
         grads = np.array(current_gradients) * reward
         xs = np.array(observations)
         net.backward_pass(xs, grads)
-        net.update_parameters(eta, decay)
+        net.update_parameters(eta, decay ** rollouts)
         current_gradients = []
         observations = []
         rollouts += 1
